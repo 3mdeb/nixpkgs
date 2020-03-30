@@ -3882,6 +3882,8 @@ in
 
   grub2_full = callPackage ../tools/misc/grub/2.0x.nix { };
 
+  grub-tb = callPackage ../tools/misc/grub-tb/default.nix { };
+
   grub2_efi = grub2.override {
     efiSupport = true;
   };
