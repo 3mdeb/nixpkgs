@@ -1,0 +1,41 @@
+From 323a2538f7dcfd1bcea9217582605f326f926731 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Norbert=20Kami=C5=84ski?= <norbert.kaminski@3mdeb.com>
+Date: Tue, 31 Mar 2020 21:02:46 +0200
+Subject: [PATCH] NixOS patch
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Norbert Kamiński <norbert.kaminski@3mdeb.com>
+---
+ Makefile        | 4 ++++
+ sanity_check.sh | 4 ++--
+ 2 files changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index feb117d..c0b9199 100644
+--- a/Makefile
++++ b/Makefile
+@@ -91,3 +91,7 @@ clean:
+ 
+ # Compiler-generated header dependencies.  Should be last.
+ -include $(OBJ:.o=.d) $(TESTS:=.d)
++
++.PHONY: install
++install:
++	install -m 0600 ./lz_header.bin $(out)
+diff --git a/sanity_check.sh b/sanity_check.sh
+index 4127cb5..8bd41d9 100755
+--- a/sanity_check.sh
++++ b/sanity_check.sh
+@@ -1,5 +1,5 @@
+-#!/bin/bash
+-. util.sh
++#!/bin/sh
++. ./util.sh
+ 
+ if ! od --format=x8 --skip-bytes=$SL_SIZE --read-bytes=16 $SLB_FILE | grep -q "e91192048e26f178 02ccc4765bc82a83"; then
+     echo "ERROR: LZ UUID missing or misplaced in $SLB_FILE" >&2
+-- 
+2.17.1
+
