@@ -12308,6 +12308,8 @@ in
     stdenv = gccStdenv;
   };
 
+  landing-zone = callPackage ../os-specific/linux/landing-zone { };
+
   languageMachines = recurseIntoAttrs (import ../development/libraries/languagemachines/packages.nix {
     inherit pkgs;
   });
