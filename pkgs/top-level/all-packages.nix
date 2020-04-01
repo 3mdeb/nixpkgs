@@ -201,6 +201,8 @@ in
 
   snapTools = callPackage ../build-support/snap { };
 
+  linuxPackages_5_1 = callPackage ../os-specific/linux/kernel/linux-5.1.nix { };
+  
   nix-prefetch-docker = callPackage ../build-support/docker/nix-prefetch-docker.nix { };
 
   docker-compose = python3Packages.callPackage ../applications/virtualization/docker-compose {};
