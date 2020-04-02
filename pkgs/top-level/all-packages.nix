@@ -12312,6 +12312,8 @@ in
 
   landing-zone = callPackage ../os-specific/linux/landing-zone { };
 
+  landing-zone-debug = callPackage ../os-specific/linux/landing-zone-debug { };
+
   languageMachines = recurseIntoAttrs (import ../development/libraries/languagemachines/packages.nix {
     inherit pkgs;
   });
