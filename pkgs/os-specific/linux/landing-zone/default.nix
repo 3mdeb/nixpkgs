@@ -10,7 +10,7 @@
 
 stdenv.mkDerivation rec {
   pname = "landing-zone";
-  version = "1.0";
+  version = "0.3.0";
 
   src = builtins.fetchGit {
   url = "https://github.com/TrenchBoot/landing-zone.git";
