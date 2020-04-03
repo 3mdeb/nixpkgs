@@ -201,6 +201,8 @@ in
 
   snapTools = callPackage ../build-support/snap { };
 
+  linuxPackages_5_1 = callPackage ../os-specific/linux/kernel/linux-5.1.nix { };
+  
   nix-prefetch-docker = callPackage ../build-support/docker/nix-prefetch-docker.nix { };
 
   docker-compose = python3Packages.callPackage ../applications/virtualization/docker-compose {};
@@ -3881,6 +3883,8 @@ in
   grub2 = grub2_full;
 
   grub2_full = callPackage ../tools/misc/grub/2.0x.nix { };
+
+  grub-tb = callPackage ../tools/misc/grub-tb/default.nix { };
 
   grub2_efi = grub2.override {
     efiSupport = true;
@@ -12305,6 +12309,10 @@ in
   l-smash = callPackage ../development/libraries/l-smash {
     stdenv = gccStdenv;
   };
+
+  landing-zone = callPackage ../os-specific/linux/landing-zone { };
+
+  landing-zone-debug = callPackage ../os-specific/linux/landing-zone-debug { };
 
   languageMachines = recurseIntoAttrs (import ../development/libraries/languagemachines/packages.nix {
     inherit pkgs;
