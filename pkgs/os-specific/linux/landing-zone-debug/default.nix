@@ -9,7 +9,7 @@
 }:
 
 stdenv.mkDerivation rec {
-  pname = "landing-zone";
+  pname = "landing-zone-debug";
   version = "1.0";
 
   src = builtins.fetchGit {
