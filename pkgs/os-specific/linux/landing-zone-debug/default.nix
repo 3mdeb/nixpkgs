@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
   src = builtins.fetchGit {
   url = "https://github.com/TrenchBoot/landing-zone.git";
   ref = "master";
-  rev = "9c7dd385014b19e045b31bce10e35c07961ba748";
+  rev = "89fc4113166823268b07d27f8b13d82223a2361d";
   };
 
   patches = [ ./compatibility.patch ];

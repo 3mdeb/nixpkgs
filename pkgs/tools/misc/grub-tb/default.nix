@@ -45,8 +45,8 @@ stdenv.mkDerivation rec {
 
   src = builtins.fetchGit {
     url = "https://github.com/3mdeb/grub2.git";
-    ref = "trenchboot_support";
-    rev = "d0d2eaf8cc016a9142a6afdcea307005832db081";
+    ref = "trenchboot_support_2.04";
+    rev = "d6fa0d1f92446243e34e009361470f5730869ee9";
   };
 
   patches = [
