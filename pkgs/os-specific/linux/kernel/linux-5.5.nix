@@ -3,16 +3,25 @@
 with stdenv.lib;
 
 buildLinux (args // rec {
-  version = "5.5.13";
+  version = "5.5.3";
+  modDirVersion = version;
 
-  # modDirVersion needs to be x.y.z, will automatically add .0 if needed
-  modDirVersion = if (modDirVersionArg == null) then concatStringsSep "." (take 3 (splitVersion "${version}.0")) else modDirVersionArg;
+  src = builtins.fetchGit {
+            url = "https://github.com/TrenchBoot/linux.git";
+            ref = "linux-sl-5.5";
+            rev = "eed5cdf480ee3761d18294d64ac7e2184229b51c";
+          };
+
 
   # branchVersion needs to be x.y
-  extraMeta.branch = versions.majorMinor version;
+  extraMeta.branch = 5.5;
 
-  src = fetchurl {
-    url = "mirror://kernel/linux/kernel/v5.x/linux-${version}.tar.xz";
-    sha256 = "1qjf18qywzrfdzwpgpf6m0w0bil8rbc9hby8473ckzvbl0a3cfqz";
-  };
+  kernelPatches = [];
+
+  extraConfig = ''
+              SECURE_LAUNCH y
+              SECURE_LAUNCH_SHA256 y
+  '';
+
+
 } // (args.argsOverride or {}))
