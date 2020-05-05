@@ -31,7 +31,7 @@ let
   canEfi = any (system: stdenv.hostPlatform.system == system) (mapAttrsToList (name: _: name) efiSystemsBuild);
   inPCSystems = any (system: stdenv.hostPlatform.system == system) (mapAttrsToList (name: _: name) pcSystems);
 
-  version = "1.0";
+  version = "1.1";
 
 in (
 
@@ -41,12 +41,12 @@ assert !(efiSupport && xenSupport);
 
 stdenv.mkDerivation rec {
   pname = "grub-tb";
-  version = "1.0";
+  version = "1.1";
 
   src = builtins.fetchGit {
     url = "https://github.com/3mdeb/grub2.git";
-    ref = "trenchboot_support_2.04";
-    rev = "d6fa0d1f92446243e34e009361470f5730869ee9";
+    ref = "trenchboot_support_efi";
+    rev = "a16f6dae3387d684dc24f54f3c30a01cf3ad0540";
   };
 
   patches = [
