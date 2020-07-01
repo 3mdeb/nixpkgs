@@ -13,9 +13,9 @@ stdenv.mkDerivation rec {
   version = "0.3.0";
 
   src = builtins.fetchGit {
-  url = "https://github.com/TrenchBoot/landing-zone.git";
-  ref = "master";
-  rev = "89fc4113166823268b07d27f8b13d82223a2361d";
+  url = "https://github.com/3mdeb/landing-zone.git";
+  ref = "tpm12_fix";
+  rev = "eaf2ce53f8cc66b23b4fae98f19ddd2275af0e6b";
   };
 
   patches = [ ./compatibility.patch ];
