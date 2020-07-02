@@ -824,6 +824,8 @@ in
 
   calls = callPackage ../applications/networking/calls { };
 
+  cbmem-tb = callPackage ../tools/misc/cbmem-tb/default.nix { };
+
   certigo = callPackage ../tools/admin/certigo { };
 
   chezmoi = callPackage ../tools/misc/chezmoi { };
